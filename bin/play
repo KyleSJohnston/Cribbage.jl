@@ -1,0 +1,28 @@
+#!/usr/bin/env julia
+
+import Pkg
+parentdir, bindir = splitdir(@__DIR__)
+Pkg.activate(parentdir)
+
+import Logging
+
+import Cribbage
+import Cribbage.SmartPlay: SmartPlayer
+import Cribbage.InteractivePlay: InteractivePlayer
+import Cribbage.TwoPlayer
+
+p₁ = SmartPlayer("computer")
+println("Who is playing?")
+p₂ = InteractivePlayer(readline())
+
+logger = Logging.ConsoleLogger(stderr, Logging.Info)
+
+Logging.with_logger(logger) do
+
+    game = Cribbage.TwoPlayer.TwoPlayerGame(p₁, p₂, 121)
+    gamestate = Cribbage.TwoPlayer.TwoPlayerGameState(
+        game, rand(Cribbage.players(game)), 0, 0
+    )
+    Cribbage.playgame(gamestate)
+
+end
