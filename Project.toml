@@ -1,0 +1,17 @@
+name = "Cribbage"
+uuid = "3b27a57a-ae07-11e9-3db2-5d5d861720d3"
+authors = ["Kyle S. Johnston <KyleSJohnston@users.noreply.github.com>"]
+version = "0.1.0"
+
+[deps]
+IterTools = "c8e1da08-722c-5040-9ed9-7db0dc04731e"
+Logging = "56ddb016-857b-54e1-b83d-db4d58db5568"
+PlayingCards = "cc446f3e-adfd-11e9-29c1-0992b06ce599"
+Random = "9a3f8284-a2c9-5f02-9a11-845980a1fd5c"
+UUIDs = "cf7118a7-6976-5b1a-9a39-7adc72f591a4"
+
+[extras]
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[targets]
+test = ["Test"]
